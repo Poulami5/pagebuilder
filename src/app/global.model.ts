@@ -18,7 +18,11 @@ export class field{
   inline?:any;
   value?:any;
   values?:Array<value>;
+  endpoint?:any;
+  customFun?:any;
+  customFunField?:any;
 }
+
 
 export class value{
   label?:any="";

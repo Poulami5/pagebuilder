@@ -1,0 +1,214 @@
+<app-header></app-header>
+<div class="container-fluid ">
+  <div class="row">
+    <div class="text-center sideMenuBgColor border">
+      <div class="mt-2 pt-3 pb-1 sideMenu" *ngFor="let indItem of menuList" [routerLinkActive]="'is-active'">
+        <a [routerLink]="routeMenu(indItem)" class="text-decoration-none text-uppercase menu-color">
+          <img [src]="getImageUrl(indItem)" alt="">
+          <p *ngIf="indItem.pageName != 'Circuit' && indItem.pageName != 'Topology'" class="pb-0 ">
+            {{indItem.pageName}}</p>
+        </a>
+      </div>
+    </div>
+    <div class="col pull-right px-0 border">
+      <div class="container-fluid border-bottom mb-1">
+        <div class="row border text-center py-2">
+          <div class="col  align-middle border-right"><img src="../../../assets/enable-icon.png" alt=""
+              class="mb-2 mr-2">
+            <span class="h4"> <strong> {{dashboardCount?.enabledCount}}</strong></span>
+            <p class="m-0">Enabled</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/disable-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.disabledCount}}</strong> </span>
+            <p class="m-0">Disabled</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/passed-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.passedCount}}</strong> </span>
+            <p class="m-0">Passed</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/failed-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.failedCount}}</strong> </span>
+            <p class="m-0">Failed</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/diff-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.configDiffCount}}</strong> </span>
+            <p class="m-0">Config-diff</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/weekly-run-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.weeklyCount}}</strong> </span>
+            <p class="m-0">Weekly Runs</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/daily-run-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.dailyCount}}</strong> </span>
+            <p class="m-0">Daily Runs</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/hourly-run-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.hourlyCount}}</strong> </span>
+            <p class="m-0">Hourly Runs</p>
+          </div>
+          <div class="col  border-right"><img src="../../../assets/run-once-icon.png" alt="" class="mb-2 mr-2">
+            <span class="h4"> <strong>{{dashboardCount?.runOnceCount}}</strong> </span>
+            <p class="m-0">Run Once</p>
+          </div>
+        </div>
+        <div class="row">
+          <div id="demo" class="col-4 border box-inner collapse mt-2 pr-0">
+            <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
+              class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
+            <router-outlet></router-outlet>
+          </div>
+          <div class="col-8" style=" height: 92vh">
+            <span *ngIf="rightDivShow" class="customSlider">
+              <img src="../../../assets/new-device-slider.png" alt="">
+              <i href="#demo" (click)="rightDivClick()" data-toggle="collapse" class="fa fa-caret-right fa-2x"
+                aria-hidden="true"></i>
+            </span>
+            <div class="container mt-2">
+              <div class="row deviceDetails border p-2 ml-4">
+                <!-- <div class="row"> -->
+                <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
+                </div>
+                <div class="col">IP Address <div> <strong>10.10.20.35</strong> </div>
+                </div>
+                <div class="col">Backup <div> <strong> <span class="text-success"> Enabled</span> </strong> </div>
+                </div>
+                <div class="col">Next Run</div>
+                <div class="col">Last Run</div>
+                <div class="col">Device Vendor</div>
+                <div class="col">
+                  <div class="dropdown">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Action
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Edit</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Show Configuration</a>
+                      <a class="dropdown-item" href="#">Adhoc Request</a>
+                      <a class="dropdown-item" href="#">Change Log</a>
+                      <a class="dropdown-item" href="#">View Run Log</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+
+                <!-- <img src="../../../assets/simulate-img.png" class="img-fluid" alt=""> -->
+              </div>
+              <div class="row border  ml-4">
+                <div class="row m-3">
+                  <div class="col-6">
+                    <div class="form-group" type="input">
+                      <label>Device Name</label>
+                      <input type="text" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="input">
+                      <label>Device IP</label>
+                      <input type="text" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Login Type</label>
+                      <select class="form-control form-control-sm">
+                        <option>SSH</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="input">
+                      <label>Login User</label>
+                      <input type="text" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="input">
+                      <label>Login Password</label>
+                      <input type="text" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="input">
+                      <label>Port</label>
+                      <input type="text" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Status</label>
+                      <select class="form-control form-control-sm">
+                        <option [value]="-1" selected>Select Status
+                        </option>
+                        <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                          {{opt.value}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="date">
+                      <label>Next Schedule</label>
+                      <input type="datetime-local" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" type="date">
+                      <label>Baseline Configuration Date</label>
+                      <input type="datetime-local" class="form-control form-control-sm">
+                    </div>
+                  </div>
+                  <div class="col-6">
+
+                    <div class="form-group">
+                      <label>Schedule Frequency</label>
+                      <select class="form-control form-control-sm">
+                        <option [value]="-1" selected>Select Schedule Frequency
+                        </option>
+                        <option *ngFor="let opt of deviceFrequency" value="{{opt.id}}">
+                          {{opt.value}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-6">
+
+                    <div class="form-group">
+                      <label>Device Command (Vendor)</label>
+                      <select class="form-control form-control-sm">
+                        <option [value]="-1" selected>Select Device Command (Vendor)
+                        </option>
+                        <option *ngFor="let opt of deviceCommand" value="{{opt.commandId}}">
+                          {{opt.commandName}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Device Group</label>
+                      <select class="form-control form-control-sm">
+                        <!-- <option [value]="-1" selected>Please Select
+                        </option> -->
+                        <option *ngFor="let opt of deviceGroup" value="{{opt.id}}">
+                          {{opt.groupName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <span class="customSlider">
+        <i (click)="slideDiv()" class="fa fa-caret-right fa-2x" aria-hidden="true"></i>
+      </span>
+      <div class="box p-0 m-0">
+        <div class="box-inner">
+          <router-outlet></router-outlet>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
