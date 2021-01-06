@@ -77,9 +77,28 @@
           </div>
         </div>
       </div>
-      <div class="row border ">
-        <div class="row m-3">
-
+      <div class="row border">
+        <div class="col-6 my-3">
+          <div class="form-group">
+            <label>User</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select User
+              </option>
+              <!-- <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                  {{opt.value}}</option> -->
+            </select>
+          </div>
+        </div>
+        <div class="col-6 my-3">
+          <div class="form-group">
+            <label>Device Group</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Device Group
+              </option>
+              <!-- <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                  {{opt.value}}</option> -->
+            </select>
+          </div>
         </div>
       </div>
     </div>

@@ -14,6 +14,10 @@ export class DeviceGroupComponent implements OnInit {
   pageName;
   searchText;
   allDevices: any = [];
+  deviceStatus = [
+    { id: 1, value: 'Yes' },
+    { id: 0, value: 'No' },
+  ];
 
   constructor(
     private router: Router,
@@ -26,7 +30,7 @@ export class DeviceGroupComponent implements OnInit {
       this.pageId = params.id;
       this.pageName = params.pageName;
     });
-    this.configurationService.getDevices().subscribe((data: any) => {
+    this.configurationService.getDeviceGroup().subscribe((data: any) => {
       this.allDevices = data;
     });
   }

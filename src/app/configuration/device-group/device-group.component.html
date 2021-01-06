@@ -29,14 +29,10 @@
         </tr>
         <tr *ngFor=" let indVal of allDevices | filter:searchText">
           <td scope="row"><input type="checkbox" id="{{indVal.deviceId}}"></td>
-          <td class="py-1 ">{{indVal.deviceName}} <br> <span class="font-weight-light p-0 m-0"> <small> IP
-                :
-                {{indVal.deviceIp}} </small> </span> </td>
+          <td class="py-1 ">{{indVal.groupName}} </td>
           <td class="text-nowrap text-right">
             <span *ngIf="indVal.is_enabled === 1" class="text-success"> Enabled</span>
-            <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span> |
-            <span *ngIf="indVal.is_new === 1" class="text-success">Passed </span>
-            <span *ngIf="indVal.is_new === 0" class="text-danger">Failed </span>
+            <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span>
           </td>
         </tr>
 
@@ -78,8 +74,22 @@
         </div>
       </div>
       <div class="row border ">
-        <div class="row m-3">
-
+        <div class="col-6 my-3">
+          <div class="form-group" type="input">
+            <label>Device Group Name</label>
+            <input type="text" class="form-control form-control-sm">
+          </div>
+        </div>
+        <div class="col-6 my-3">
+          <div class="form-group">
+            <label>Is Enabled</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Is Enabled Yes/No
+              </option>
+              <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                {{opt.value}}</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
