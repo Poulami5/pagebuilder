@@ -12,15 +12,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   pageNa;
   pageI;
   dashboardCount;
-  rightDivShow: boolean = true;
-  leftDivShow: boolean = false;
-  deviceCommand;
-  deviceFrequency;
-  deviceGroup;
-  deviceStatus = [
-    { id: 0, value: 'Disabled' },
-    { id: 1, value: 'Enabled' },
-  ];
+
   constructor(
     private router: Router,
     private configurationService: ConfigurationService
@@ -34,28 +26,6 @@ export class ConfigurationLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getDashboardCounts();
-    this.getDeviceCommand();
-    this.getDeviceFrequency();
-    this.getDeviceGroup();
-  }
-
-  getDeviceCommand() {
-    this.configurationService.getDeviceCommand().subscribe((data: any) => {
-      this.deviceCommand = data;
-      console.log(this.deviceCommand);
-    });
-  }
-  getDeviceFrequency() {
-    this.configurationService.getDeviceFrequency().subscribe((data: any) => {
-      this.deviceFrequency = data;
-      console.log(this.deviceFrequency);
-    });
-  }
-  getDeviceGroup() {
-    this.configurationService.getDeviceGroup().subscribe((data: any) => {
-      this.deviceGroup = data;
-      console.log(this.deviceGroup);
-    });
   }
 
   getDashboardCounts() {
@@ -80,23 +50,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   }
 
   routeMenu(element) {
-    let url = '/configuration/list/' + element.pageName;
+    let url = '/configuration/' + element.pageName;
     return url;
-  }
-
-  rightDivClick() {
-    this.leftDivShow = true;
-    this.rightDivShow = false;
-  }
-
-  leftDivClick() {
-    this.rightDivShow = true;
-    this.leftDivShow = false;
-  }
-
-  slideDiv() {
-    $('.box').animate({
-      width: 'toggle',
-    });
   }
 }

@@ -3,10 +3,19 @@
 }
 .box-inner {
   width: 315px;
-  height: 92vh;
+  /* height: 92vh; */
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   /* padding: 5px; */
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.outerBox {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
 .menu-color {
@@ -28,9 +37,4 @@
 ::-webkit-scrollbar-thumb {
   background: #7b7474;
   border-radius: 10px;
-}
-
-.deviceDetails {
-  background: gainsboro;
-  height: 60px;
 }

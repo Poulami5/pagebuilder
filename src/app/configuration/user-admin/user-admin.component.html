@@ -1,3 +1,87 @@
-<p>
-  user-admin works!
-</p>
+<div class="row ml-0 mr-0">
+  <div id="demo" class="col-4 border box-inner collapse mt-2 px-0">
+    <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
+      class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
+    <div class="row p-2 sticky-div mb-0 bg-white rounded">
+      <div class="col text-right">
+        <span type="button" [routerLink]="routeToAddDetails()" class="btn btn-light btn-sm"><i
+            class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+        </span>
+        <span type="button" class="btn btn-light btn-sm"><i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <table class="table table-hover mb-0 ">
+      <tbody>
+        <tr class="sticky-div">
+          <td colspan="2">
+            <div class="input-group input-focus">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white"><i class="fa fa-search"></i></span>
+              </div>
+              <input type="search" placeholder="Search" id="name" (keyup)="filterValues($event)"
+                class="form-control form-control-sm border-left-0">
+            </div>
+          </td>
+          <td>
+            <i class="fa fa-sliders pl-5 align-middle" aria-hidden="true"></i>
+          </td>
+        </tr>
+        <tr *ngFor=" let indVal of allDevices | filter:searchText">
+          <td scope="row"><input type="checkbox" id="{{indVal.deviceId}}"></td>
+          <td class="py-1 ">{{indVal.deviceName}} <br> <span class="font-weight-light p-0 m-0"> <small> IP
+                :
+                {{indVal.deviceIp}} </small> </span> </td>
+          <td class="text-nowrap text-right">
+            <span *ngIf="indVal.is_enabled === 1" class="text-success"> Enabled</span>
+            <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span> |
+            <span *ngIf="indVal.is_new === 1" class="text-success">Passed </span>
+            <span *ngIf="indVal.is_new === 0" class="text-danger">Failed </span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class=" customSlider border-right border-top mt-2" *ngIf="rightDivShow">
+    <img src="../../../assets/new-device-slider.png" alt="">
+    <i href="#demo" data-toggle="collapse" (click)="rightDivClick()" class="fa fa-caret-right fa-2x"
+      aria-hidden="true"></i>
+  </div>
+  <div class="col outerBox">
+    <div class="mx-2 mt-2">
+      <div class="row border-top border-right border-left p-2 deviceDetails">
+        <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
+        </div>
+        <div class="col">IP Address <div> <strong>10.10.20.35</strong> </div>
+        </div>
+        <div class="col">Backup <div> <strong> <span class="text-success"> Enabled</span> </strong> </div>
+        </div>
+        <div class="col">Next Run</div>
+        <div class="col">Last Run</div>
+        <div class="col">Device Vendor</div>
+        <div class="col">
+          <div class="dropdown">
+            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Action
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Edit</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Show Configuration</a>
+              <a class="dropdown-item" href="#">Adhoc Request</a>
+              <a class="dropdown-item" href="#">Change Schedule</a>
+              <a class="dropdown-item" href="#">View Run Log</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border ">
+        <div class="row m-3">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

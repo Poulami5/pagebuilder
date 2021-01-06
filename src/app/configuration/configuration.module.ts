@@ -7,8 +7,9 @@ import { ConfigurationRoutingModule } from './configuration-routing.module';
 import { ListComponent } from './list/list.component';
 import { DeviceGroupComponent } from './device-group/device-group.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
+import { DeviceAdminComponent } from './device-admin/device-admin.component';
 @NgModule({
-  declarations: [ListComponent, DeviceGroupComponent, UserAdminComponent],
+  declarations: [ListComponent, DeviceGroupComponent, UserAdminComponent, DeviceAdminComponent],
   imports: [
     CommonModule,
     Ng2SearchPipeModule,
