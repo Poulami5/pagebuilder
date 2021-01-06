@@ -27,11 +27,9 @@
             <i class="fa fa-sliders pl-5 align-middle" aria-hidden="true"></i>
           </td>
         </tr>
-        <tr *ngFor=" let indVal of allDevices | filter:searchText">
+        <tr *ngFor=" let indVal of allDeviceGroup | filter:searchText">
           <td scope="row"><input type="checkbox" id="{{indVal.deviceId}}"></td>
-          <td class="py-1 ">{{indVal.deviceName}} <br> <span class="font-weight-light p-0 m-0"> <small> IP
-                :
-                {{indVal.deviceIp}} </small> </span> </td>
+          <td class="py-1 ">{{indVal.groupName}} </td>
           <td class="text-nowrap text-right">
             <span *ngIf="indVal.is_enabled === 1" class="text-success"> Enabled</span>
             <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span> |
@@ -95,8 +93,8 @@
             <select class="form-control form-control-sm">
               <option [value]="-1" selected>Select Device Group
               </option>
-              <!-- <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
-                  {{opt.value}}</option> -->
+              <option *ngFor="let opt of allDeviceGroup" value="{{opt.id}}">
+                {{opt.groupName}}</option>
             </select>
           </div>
         </div>

@@ -13,7 +13,7 @@ export class UserAdminComponent implements OnInit {
   pageId;
   pageName;
   searchText;
-  allDevices: any = [];
+  allDeviceGroup: any = [];
 
   constructor(
     private router: Router,
@@ -26,8 +26,8 @@ export class UserAdminComponent implements OnInit {
       this.pageId = params.id;
       this.pageName = params.pageName;
     });
-    this.configurationService.getDevices().subscribe((data: any) => {
-      this.allDevices = data;
+    this.configurationService.getDeviceGroup().subscribe((data: any) => {
+      this.allDeviceGroup = data;
     });
   }
 
