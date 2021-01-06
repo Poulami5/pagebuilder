@@ -27,8 +27,8 @@ export class ConfigurationLayoutComponent implements OnInit {
   ) {}
 
   menuList = [
-    { pageId: 7, Type: 'Page', pageName: 'Device', pageOrder: 7 },
-    { pageId: 8, Type: 'Page', pageName: 'Device Admin', pageOrder: 7 },
+    { pageId: 7, Type: 'Page', pageName: 'Device Admin', pageOrder: 7 },
+    { pageId: 8, Type: 'Page', pageName: 'Device Group', pageOrder: 7 },
     { pageId: 9, Type: 'Page', pageName: 'User Admin', pageOrder: 7 },
   ];
 
@@ -80,8 +80,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   }
 
   routeMenu(element) {
-    let url =
-      '/configuration/list/' + element.pageName + '/' + element.pageId + '';
+    let url = '/configuration/list/' + element.pageName;
     return url;
   }
 
