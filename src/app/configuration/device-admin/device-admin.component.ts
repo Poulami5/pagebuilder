@@ -8,8 +8,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./device-admin.component.css'],
 })
 export class DeviceAdminComponent implements OnInit {
-  rightDivShow: boolean = true;
-  leftDivShow: boolean = false;
+  rightDivShow: boolean = false;
+  leftDivShow: boolean = true;
   deviceCommand;
   deviceFrequency;
   deviceGroup;

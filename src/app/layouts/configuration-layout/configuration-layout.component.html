@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="text-center sideMenuBar border-top">
   <div class="mb-2 pt-3 pb-1 sideMenu" *ngFor="let indItem of menuList" [routerLinkActive]="'is-active'">
-    <a [routerLink]="routeMenu(indItem)" class="text-decoration-none text-uppercase menu-color">
+    <a [routerLink]="routeMenu(indItem)" class="text-decoration-none  menu-color">
       <img [src]="getImageUrl(indItem)" alt="">
       <p *ngIf="indItem.pageName != 'Circuit' && indItem.pageName != 'Topology'" class="pb-0 ">
         {{indItem.pageName}}</p>
@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="rightContainer border">
-  <div class="row ml-0 mr-0 border-bottom text-center py-2">
+  <div class="row ml-0 mr-0 border-bottom bg-white text-center py-1">
     <div class="col  align-middle border-right"><img src="../../../assets/enable-icon.png" alt="" class="mb-2 mr-2">
       <span class="h4"> <strong> {{dashboardCount?.enabledCount}}</strong></span>
       <p class="m-0">Enabled</p>

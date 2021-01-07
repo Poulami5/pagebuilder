@@ -45,8 +45,8 @@
       aria-hidden="true"></i>
   </div>
   <div class="col outerBox">
-    <div class="mx-2 mt-2">
-      <div class="row border-top border-right border-left p-2 deviceDetails">
+    <div class="mr-2 mt-2">
+      <!-- <div class="row border-top border-right border-left p-2 deviceDetails">
         <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
         </div>
         <div class="col">IP Address <div> <strong>10.10.20.35</strong> </div>
@@ -72,23 +72,28 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row border ">
-        <div class="col-6 my-3">
-          <div class="form-group" type="input">
-            <label>Device Group Name</label>
-            <input type="text" class="form-control form-control-sm">
+      </div> -->
+      <div class="border" style="min-height: 80vh;">
+        <div class="row m-3">
+          <div class="col-6">
+            <div class="form-group" type="input">
+              <label>Device Group Name</label>
+              <input type="text" class="form-control form-control-sm">
+            </div>
           </div>
-        </div>
-        <div class="col-6 my-3">
-          <div class="form-group">
-            <label>Is Enabled</label>
-            <select class="form-control form-control-sm">
-              <option [value]="-1" selected>Select Is Enabled Yes/No
-              </option>
-              <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
-                {{opt.value}}</option>
-            </select>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Is Enabled</label>
+              <select class="form-control form-control-sm">
+                <option [value]="-1" selected>Select Is Enabled Yes/No
+                </option>
+                <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                  {{opt.value}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col" align="center">
+            <button type="button" class="btn btn-primary btn-sm col-2">Save</button>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   float: left;
 }
 .box-inner {
-  width: 315px;
+  width: 215px;
   /* height: 92vh; */
   display: flex;
   flex-flow: column;

@@ -14,6 +14,7 @@ export class UserAdminComponent implements OnInit {
   pageName;
   searchText;
   allDeviceGroup: any = [];
+  allUsers: any = [];
 
   constructor(
     private router: Router,
@@ -28,6 +29,9 @@ export class UserAdminComponent implements OnInit {
     });
     this.configurationService.getDeviceGroup().subscribe((data: any) => {
       this.allDeviceGroup = data;
+    });
+    this.configurationService.getUsers().subscribe((data: any) => {
+      this.allUsers = data;
     });
   }
 

@@ -27,15 +27,17 @@
             <i class="fa fa-sliders pl-5 align-middle" aria-hidden="true"></i>
           </td>
         </tr>
-        <tr *ngFor=" let indVal of allDeviceGroup | filter:searchText">
-          <td scope="row"><input type="checkbox" id="{{indVal.deviceId}}"></td>
-          <td class="py-1 ">{{indVal.groupName}} </td>
-          <td class="text-nowrap text-right">
+        <tr *ngFor=" let indVal of allUsers | filter:searchText">
+          <td scope="row"><input type="checkbox" id="{{indVal.id}}"></td>
+          <td class="py-1 ">{{indVal.username}} </td>
+          <td class="py-1 ">{{indVal.email}} </td>
+
+          <!-- <td class="text-nowrap text-right">
             <span *ngIf="indVal.is_enabled === 1" class="text-success"> Enabled</span>
             <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span> |
             <span *ngIf="indVal.is_new === 1" class="text-success">Passed </span>
             <span *ngIf="indVal.is_new === 0" class="text-danger">Failed </span>
-          </td>
+          </td> -->
         </tr>
 
       </tbody>
@@ -47,8 +49,8 @@
       aria-hidden="true"></i>
   </div>
   <div class="col outerBox">
-    <div class="mx-2 mt-2">
-      <div class="row border-top border-right border-left p-2 deviceDetails">
+    <div class="mr-2 mt-2">
+      <!-- <div class="row border-top border-right border-left p-2 deviceDetails">
         <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
         </div>
         <div class="col">IP Address <div> <strong>10.10.20.35</strong> </div>
@@ -74,28 +76,33 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row border">
-        <div class="col-6 my-3">
-          <div class="form-group">
-            <label>User</label>
-            <select class="form-control form-control-sm">
-              <option [value]="-1" selected>Select User
-              </option>
-              <!-- <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
-                  {{opt.value}}</option> -->
-            </select>
+      </div> -->
+      <div class="border" style="min-height: 80vh;">
+        <div class="row m-3">
+          <div class="col-6">
+            <div class="form-group">
+              <label>User</label>
+              <select class="form-control form-control-sm">
+                <option [value]="-1" selected>Select User
+                </option>
+                <option *ngFor="let opt of allUsers" value="{{opt.id}}">
+                  {{opt.username}}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="col-6 my-3">
-          <div class="form-group">
-            <label>Device Group</label>
-            <select class="form-control form-control-sm">
-              <option [value]="-1" selected>Select Device Group
-              </option>
-              <option *ngFor="let opt of allDeviceGroup" value="{{opt.id}}">
-                {{opt.groupName}}</option>
-            </select>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Device Group</label>
+              <select class="form-control form-control-sm">
+                <option [value]="-1" selected>Select Device Group
+                </option>
+                <option *ngFor="let opt of allDeviceGroup" value="{{opt.id}}">
+                  {{opt.groupName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col" align="center">
+            <button type="button" class="btn btn-primary btn-sm col-2">Save</button>
           </div>
         </div>
       </div>

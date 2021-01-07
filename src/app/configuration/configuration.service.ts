@@ -50,4 +50,11 @@ export class ConfigurationService {
       { headers: headers }
     );
   }
+
+  getUsers(): Observable<any> {
+    return this.http.get(
+      environment.configBaseUrl + environment.configApiEndPoint.getUsers,
+      { headers: headers }
+    );
+  }
 }

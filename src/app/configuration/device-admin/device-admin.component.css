@@ -5,6 +5,7 @@ tbody {
 }
 thead,
 tbody tr {
+  color: var(--font-color);
   display: table;
   width: 100%;
 }

@@ -13,5 +13,6 @@ export const environment = {
     getAllDeviceGroup: '/getAllDeviceGroup',
     getAllDeviceCommand: '/getAllDeviceCommand',
     getAllDeviceFrequency: '/getAllDeviceFrequency',
+    getUsers: '/getUsers',
   },
 };
