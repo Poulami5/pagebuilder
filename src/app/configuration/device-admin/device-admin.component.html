@@ -1,5 +1,5 @@
 <div class="row ml-0 mr-0">
-  <div id="demo" class="col-3 border box-inner collapse show mt-2 px-0">
+  <div id="demo" class="col-3 border box-inner collapse show mt-1 px-0">
 
     <div class="row border-bottom mx-0 mb-0">
       <nav class="navbar navbar-expand-lg py-0 col align-self-end">
@@ -35,7 +35,7 @@
           <td colspan="2">
             <div class="input-group input-focus">
               <div class="input-group-prepend">
-                <span class="input-group-text" style="background-color: #f8faf9;"><i class="fa fa-search"></i></span>
+                <span class="input-group-text " style="background-color: #f8faf9;"><i class="fa fa-search"></i></span>
               </div>
               <input type="search" style="background-color: #f8faf9;" placeholder="Search" id="name"
                 (keyup)="filterValues($event)" class="form-control border-left-0">
@@ -72,13 +72,13 @@
       </tbody>
     </table>
   </div>
-  <div class=" customSlider border-right border-top mt-2" *ngIf="rightDivShow">
+  <div class=" customSlider border-right border-top mt-1" *ngIf="rightDivShow">
     <img src="../../../assets/new-device-slider.png" alt="">
     <i href="#demo" data-toggle="collapse" (click)="rightDivClick()" class="fa fa-caret-right fa-2x"
       aria-hidden="true"></i>
   </div>
   <div class="col outerBox">
-    <div class="mx-2 mt-2">
+    <div class="ml-1 mr-2 mt-1">
       <div class="row border p-3 deviceDetails">
         <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
         </div>
@@ -106,104 +106,103 @@
           </div>
         </div>
       </div>
-      <div class="row border bg-white">
-        <div class="row m-5">
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Device Name</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+      <div class="row p-5 border bg-white">
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Device Name</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Device IP</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Device IP</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Login Type</label>
-              <select class="form-control form-control-sm">
-                <option>SSH</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Login Type</label>
+            <select class="form-control form-control-sm">
+              <option>SSH</option>
+            </select>
           </div>
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Login User</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Login User</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Login Password</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Login Password</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Port</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Port</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control form-control-sm">
-                <option [value]="-1" selected>Select Status
-                </option>
-                <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
-                  {{opt.value}}</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Status</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Status
+              </option>
+              <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                {{opt.value}}</option>
+            </select>
           </div>
-          <div class="col-6">
-            <div class="form-group" type="date">
-              <label>Next Schedule</label>
-              <input type="datetime-local" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="date">
+            <label>Next Schedule</label>
+            <input type="datetime-local" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group" type="date">
-              <label>Baseline Configuration Date</label>
-              <input type="datetime-local" class="form-control form-control-sm">
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group" type="date">
+            <label>Baseline Configuration Date</label>
+            <input type="datetime-local" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Schedule Frequency</label>
-              <select class="form-control form-control-sm">
-                <option [value]="-1" selected>Select Schedule Frequency
-                </option>
-                <option *ngFor="let opt of deviceFrequency" value="{{opt.id}}">
-                  {{opt.value}}</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Schedule Frequency</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Schedule Frequency
+              </option>
+              <option *ngFor="let opt of deviceFrequency" value="{{opt.id}}">
+                {{opt.value}}</option>
+            </select>
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Device Command (Vendor)</label>
-              <select class="form-control form-control-sm">
-                <option [value]="-1" selected>Select Device Command (Vendor)
-                </option>
-                <option *ngFor="let opt of deviceCommand" value="{{opt.commandId}}">
-                  {{opt.commandName}}</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Device Command (Vendor)</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Device Command (Vendor)
+              </option>
+              <option *ngFor="let opt of deviceCommand" value="{{opt.commandId}}">
+                {{opt.commandName}}</option>
+            </select>
+          </div>
 
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Device Group</label>
+            <select class="form-control form-control-sm">
+              <option *ngFor="let opt of deviceGroup" value="{{opt.id}}">
+                {{opt.groupName}}</option>
+            </select>
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Device Group</label>
-              <select class="form-control form-control-sm">
-                <option *ngFor="let opt of deviceGroup" value="{{opt.id}}">
-                  {{opt.groupName}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="col" align="end">
-            <button type="button" class="btn btn-primary btn-sm col-2">Save</button>
-          </div>
+        </div>
+        <div class="col-12 mt-4" align="end">
+          <button type="reset" class="btn btn-secondary btn-sm col-2">Reset</button>
+          <button type="button" class="btn btn-primary btn-sm col-2 ml-3">Save</button>
         </div>
       </div>
     </div>

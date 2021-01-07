@@ -54,19 +54,16 @@ export class DeviceAdminComponent implements OnInit {
   getDeviceCommand() {
     this.configurationService.getDeviceCommand().subscribe((data: any) => {
       this.deviceCommand = data;
-      console.log(this.deviceCommand);
     });
   }
   getDeviceFrequency() {
     this.configurationService.getDeviceFrequency().subscribe((data: any) => {
       this.deviceFrequency = data;
-      console.log(this.deviceFrequency);
     });
   }
   getDeviceGroup() {
     this.configurationService.getDeviceGroup().subscribe((data: any) => {
       this.deviceGroup = data;
-      console.log(this.deviceGroup);
     });
   }
 

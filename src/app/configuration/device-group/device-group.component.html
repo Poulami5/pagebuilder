@@ -1,30 +1,47 @@
 <div class="row ml-0 mr-0">
-  <div id="demo" class="col-4 border box-inner collapse mt-2 px-0">
-    <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
-      class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
-    <div class="row p-2 sticky-div mb-0 bg-white rounded">
-      <div class="col text-right">
-        <span type="button" [routerLink]="routeToAddDetails()" class="btn btn-light btn-sm"><i
-            class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
-        </span>
-        <span type="button" class="btn btn-light btn-sm"><i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
-        </span>
-      </div>
+  <div id="demo" class="col-3 border box-inner collapse show mt-1 px-0">
+    <div class="row border-bottom mx-0 mb-0">
+      <nav class="navbar navbar-expand-lg py-0 col align-self-end">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item pt-25">
+            <span type="button" [routerLink]="routeToAddDetails()" class="btn btn-light btn-sm bc-n"><i
+                class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
+            </span>
+          </li>
+          <li class="nav-item dropdown">
+            <span type="button" class="nav-link btn btn-light btn-sm bc-n" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
+            </span>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">View Config Backup</a>
+              <a class="dropdown-item" href="#">Compare Config Backup</a>
+              <a class="dropdown-item" href="#">Create Device Group</a>
+              <a class="dropdown-item" href="#">Delete Device</a>
+              <a class="dropdown-item" href="#">Schedule Run</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"> Download All Device</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
+        class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div " aria-hidden="true"></i>
     </div>
-    <table class="table table-hover mb-0 ">
+    <table class="table table-hover table-borderless mb-0 ">
       <tbody>
         <tr class="sticky-div">
           <td colspan="2">
             <div class="input-group input-focus">
               <div class="input-group-prepend">
-                <span class="input-group-text bg-white"><i class="fa fa-search"></i></span>
+                <span class="input-group-text" style="background-color: #f8faf9;"><i class="fa fa-search"></i></span>
               </div>
-              <input type="search" placeholder="Search" id="name" (keyup)="filterValues($event)"
-                class="form-control form-control-sm border-left-0">
+              <input type="search" style="background-color: #f8faf9;" placeholder="Search" id="name"
+                (keyup)="filterValues($event)" class="form-control border-left-0">
             </div>
           </td>
-          <td>
-            <i class="fa fa-sliders pl-5 align-middle" aria-hidden="true"></i>
+          <td class="align-middle">
+            <i class="fa fa-sliders fa-lg" aria-hidden="true"></i>
           </td>
         </tr>
         <tr *ngFor=" let indVal of allDevices | filter:searchText">
@@ -35,18 +52,17 @@
             <span *ngIf="indVal.is_enabled === 0" class="text-muted"> Disabled</span>
           </td>
         </tr>
-
       </tbody>
     </table>
   </div>
-  <div class=" customSlider border-right border-top mt-2" *ngIf="rightDivShow">
+  <div class=" customSlider border-right border-top mt-1" *ngIf="rightDivShow">
     <img src="../../../assets/new-device-slider.png" alt="">
     <i href="#demo" data-toggle="collapse" (click)="rightDivClick()" class="fa fa-caret-right fa-2x"
       aria-hidden="true"></i>
   </div>
-  <div class="col outerBox">
-    <div class="mr-2 mt-2">
-      <!-- <div class="row border-top border-right border-left p-2 deviceDetails">
+  <div class="col outerBox" style="min-height: 82vh;">
+    <div class="ml-1 mr-2 mt-1" style="min-height: 82vh;">
+      <div class="row border p-3 deviceDetails">
         <div class="col">Device Name <div> <strong>Test_Device5</strong> </div>
         </div>
         <div class="col">IP Address <div> <strong>10.10.20.35</strong> </div>
@@ -72,29 +88,39 @@
             </div>
           </div>
         </div>
-      </div> -->
-      <div class="border" style="min-height: 80vh;">
-        <div class="row m-3">
-          <div class="col-6">
-            <div class="form-group" type="input">
-              <label>Device Group Name</label>
-              <input type="text" class="form-control form-control-sm">
-            </div>
+      </div>
+      <div class="row p-5 border bg-white">
+        <div class="col-6">
+          <div class="form-group" type="input">
+            <label>Device Group Name</label>
+            <input type="text" class="form-control form-control-sm">
           </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label>Is Enabled</label>
-              <select class="form-control form-control-sm">
-                <option [value]="-1" selected>Select Is Enabled Yes/No
-                </option>
-                <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
-                  {{opt.value}}</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Is Enabled</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select Is Enabled Yes/No
+              </option>
+              <option *ngFor="let opt of deviceStatus" value="{{opt.id}}">
+                {{opt.value}}</option>
+            </select>
           </div>
-          <div class="col" align="center">
-            <button type="button" class="btn btn-primary btn-sm col-2">Save</button>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>User</label>
+            <select class="form-control form-control-sm">
+              <option [value]="-1" selected>Select User
+              </option>
+              <option *ngFor="let opt of allUsers" value="{{opt.id}}">
+                {{opt.username}}</option>
+            </select>
           </div>
+        </div>
+        <div class="col-12 mt-4" align="end">
+          <button type="reset" class="btn btn-secondary btn-sm col-2">Reset</button>
+          <button type="button" class="btn btn-primary btn-sm col-2 ml-3">Save</button>
         </div>
       </div>
     </div>

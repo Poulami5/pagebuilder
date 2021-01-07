@@ -5,6 +5,19 @@ tbody {
 }
 thead,
 tbody tr {
+  color: var(--font-color);
   display: table;
   width: 100%;
+}
+
+.pt-25 {
+  padding-top: 0.25rem !important;
+}
+.bc-n {
+  background-color: transparent;
+  border: none;
+}
+
+.p-255 {
+  padding: 0.25rem 0.5rem;
 }

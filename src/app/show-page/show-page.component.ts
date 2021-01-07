@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { concat } from "rxjs";
-import { field, value } from "../global.model";
-import { ServiceService } from "../service.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { concat } from 'rxjs';
+import { field, value } from '../global.model';
+import { ServiceService } from '../service.service';
 @Component({
-  selector: "app-show-page",
-  templateUrl: "./show-page.component.html",
-  styleUrls: ["./show-page.component.css"],
+  selector: 'app-show-page',
+  templateUrl: './show-page.component.html',
+  styleUrls: ['./show-page.component.css'],
 })
 export class ShowPageComponent implements OnInit {
   success = false;
@@ -16,9 +16,9 @@ export class ShowPageComponent implements OnInit {
     // name:'App name...',
     // description:'App Description...',
     theme: {
-      bgColor: "ffffff",
-      textColor: "555555",
-      bannerImage: "",
+      bgColor: 'ffffff',
+      textColor: '555555',
+      bannerImage: '',
     },
     attributes: this.modelFields,
   };
@@ -26,32 +26,32 @@ export class ShowPageComponent implements OnInit {
 
   ngOnInit() {
     // this.router.navigate(['/', 'red-pill'])
-    this.model = JSON.parse(localStorage.getItem("modal"));
-    console.log(this.model);
+    this.model = JSON.parse(localStorage.getItem('modal'));
+    // console.log(this.model);
   }
   toggleValue(item) {
     item.selected = !item.selected;
   }
 
   submit() {
-    console.log("Attributes : ", this.model.attributes);
+    // console.log("Attributes : ", this.model.attributes);
     let obj = {};
     this.model.attributes.forEach((element) => {
       obj[element.name] = element.value;
-      if (element.type === "button") {
-        console.log("obj : " + JSON.stringify(obj));
+      if (element.type === 'button') {
+        // console.log("obj : " + JSON.stringify(obj));
         // this.service.createNE(element.endpoint, obj).subscribe(res=>{
         //   console.log(res);
         // })
-        alert("api called : " + element.endpoint);
+        alert('api called : ' + element.endpoint);
       }
     });
   }
 
   customFunction() {
     this.model.attributes.forEach((element) => {
-      if (element.customFun != "" && element.customFun != undefined) {
-        let el = document.querySelector("#" + element.name); //vendorId
+      if (element.customFun != '' && element.customFun != undefined) {
+        let el = document.querySelector('#' + element.name); //vendorId
         if (el === document.activeElement) {
           let firstArg = element.firstArg;
           let secondArg = element.secondArg;
@@ -61,7 +61,7 @@ export class ShowPageComponent implements OnInit {
           let funName = element.customFun;
 
           switch (funName) {
-            case "concat":
+            case 'concat':
               this.model.attributes.forEach((e) => {
                 if (e.name === firstArg) {
                   firstArgVal = e.value;
@@ -77,23 +77,27 @@ export class ShowPageComponent implements OnInit {
               });
 
               break;
-            case "split":
+            case 'split':
               this.model.attributes.forEach((e) => {
                 if (e.name === firstArg) {
                   firstArgVal = e.value;
                 }
-                  secondArgVal = e.secondArg;
-                  thirdArgVal = e.thirdArg
+                secondArgVal = e.secondArg;
+                thirdArgVal = e.thirdArg;
                 if (firstArgVal && secondArg) {
                   if (e.name === element.name) {
-                    e.value = this.splitFunc(firstArgVal, secondArgVal,thirdArgVal) ;
+                    e.value = this.splitFunc(
+                      firstArgVal,
+                      secondArgVal,
+                      thirdArgVal
+                    );
                   }
                 }
               });
               break;
-              
+
             default:
-              console.log("No Custom Func!");
+              console.log('No Custom Func!');
               break;
           }
 
@@ -125,27 +129,27 @@ export class ShowPageComponent implements OnInit {
     });
   }
   concatFunc(fArg, sArg) {
-    console.log(fArg,sArg);
-    
+    console.log(fArg, sArg);
+
     let val = fArg.concat(sArg);
     return val;
   }
-  splitFunc(fArg, sArg, tArg){
+  splitFunc(fArg, sArg, tArg) {
     let seperator;
     let indexVal;
-    if(tArg === "show first"){
-      tArg = 0
+    if (tArg === 'show first') {
+      tArg = 0;
     }
-    if(tArg === "show second"){
-      tArg = 1
+    if (tArg === 'show second') {
+      tArg = 1;
     }
 
-    let val = fArg.split(sArg)
-    return val[tArg]
+    let val = fArg.split(sArg);
+    return val[tArg];
   }
 
   clear() {
     localStorage.clear();
-    this.router.navigate(["/createPage"]);
+    this.router.navigate(['/createPage']);
   }
 }

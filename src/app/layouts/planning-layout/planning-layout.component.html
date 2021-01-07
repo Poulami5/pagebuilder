@@ -1,42 +1,64 @@
 <app-header></app-header>
-<div class="container-fluid ">
-  <div class="row">
-    <div class="text-center sideMenuBgColor mt-1 border">
-      <div class="mt-3 sideMenu" *ngFor="let indItem of menuList" [routerLinkActive]="'is-active'"
-        [ngClass]="{'is-active': listActive.isActive || addActive.isActive }">
-        <a [routerLink]="routeMenu(indItem)" class="text-decoration-none text-uppercase menu-color">
-          <img [src]="getImageUrl(indItem)" alt="">
-          <p *ngIf="indItem.pageName != 'Circuit' && indItem.pageName != 'Topology'" class="pb-0 ">
-            {{indItem.pageName}}</p>
-        </a>
-        <a routerLink="/planning/list-items/{{indItem.pageName}}/{{indItem.pageId}}" routerLinkActive
-          #listActive="routerLinkActive" style="display: none"></a>
-        <a routerLink="/planning/add-items/{{indItem.pageName}}/{{indItem.pageId}}" routerLinkActive
-          #addActive="routerLinkActive" style="display: none"></a>
+<!-- <div class="container-fluid "> -->
+<!-- <div class="row"> -->
+<div class="text-center sideMenuBar  border-top">
+  <div class="mb-2 pt-2 pb-1 sideMenu" *ngFor="let indItem of menuList" [routerLinkActive]="'is-active'"
+    [ngClass]="{'is-active': listActive.isActive || addActive.isActive }">
+    <a [routerLink]="routeMenu(indItem)" class="text-decoration-none menu-color">
+      <img [src]="getImageUrl(indItem)" alt="">
+      <p *ngIf="indItem.pageName != 'Circuit' && indItem.pageName != 'Topology'" class="pb-0 ">
+        {{indItem.pageName}}</p>
+    </a>
+    <a routerLink="/planning/list-items/{{indItem.pageName}}/{{indItem.pageId}}" routerLinkActive
+      #listActive="routerLinkActive" style="display: none"></a>
+    <a routerLink="/planning/add-items/{{indItem.pageName}}/{{indItem.pageId}}" routerLinkActive
+      #addActive="routerLinkActive" style="display: none"></a>
+  </div>
+</div>
+<div class="rightContainer border">
+  <div class="row ml-0 mr-0">
+    <div id="demo" class="col-3 border box-inner collapse show mt-1 px-0">
+      <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
+        class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
+      <router-outlet></router-outlet>
+    </div>
+    <div class=" customSlider border-right border-top mt-1" *ngIf="rightDivShow">
+      <img src="../../../assets/new-device-slider.png" alt="">
+      <i href="#demo" data-toggle="collapse" (click)="rightDivClick()" class="fa fa-caret-right fa-2x"
+        aria-hidden="true"></i>
+    </div>
+    <div class="col outerBox">
+      <div class="ml-1 mr-2 mt-1">
+        <div class="row p-5 border bg-white">
+          other stuff
+        </div>
       </div>
     </div>
-    <div class="col pull-right mt-1 pl-0 border">
-      <div class="container-fluid p-0 m-0">
-        <div class="row">
-          <div id="demo" class="col-4 box-inner collapse pr-0">
-            <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
-              class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
-            <router-outlet></router-outlet>
-          </div>
-          <div class="col-8" style=" height: 92vh">
-            <span *ngIf="rightDivShow" class="customSlider">
-              <img src="../../../assets/new-device-slider.png" alt="">
-              <i href="#demo" (click)="rightDivClick()" data-toggle="collapse" class="fa fa-caret-right fa-2x"
-                aria-hidden="true"></i>
-            </span>
-            <div class="container">
-              <div class="row ml-4">
-                <!-- <img src="../../../assets/simulate-img.png" class="img-fluid" alt=""> -->
-              </div>
-            </div>
+  </div>
+
+  <!-- <div class="col pull-right mt-1 pl-0 border">
+  <div class="container-fluid p-0 m-0">
+    <div class="row">
+      <div id="demo" class="col-4 box-inner collapse pr-0">
+        <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
+          class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div" aria-hidden="true"></i>
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-8" style=" height: 92vh">
+        <span *ngIf="rightDivShow" class="customSlider">
+          <img src="../../../assets/new-device-slider.png" alt="">
+          <i href="#demo" (click)="rightDivClick()" data-toggle="collapse" class="fa fa-caret-right fa-2x"
+            aria-hidden="true"></i>
+        </span>
+        <div class="container">
+          <div class="row ml-4">
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+  <!-- </div> -->
+  <!-- </div> -->

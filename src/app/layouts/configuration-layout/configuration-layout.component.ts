@@ -21,7 +21,6 @@ export class ConfigurationLayoutComponent implements OnInit {
   menuList = [
     { pageId: 7, Type: 'Page', pageName: 'Device Admin', pageOrder: 7 },
     { pageId: 8, Type: 'Page', pageName: 'Device Group', pageOrder: 7 },
-    { pageId: 9, Type: 'Page', pageName: 'User Admin', pageOrder: 7 },
   ];
 
   ngOnInit() {

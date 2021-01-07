@@ -7,13 +7,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./device-group.component.css'],
 })
 export class DeviceGroupComponent implements OnInit {
-  rightDivShow: boolean = true;
-  leftDivShow: boolean = false;
+  rightDivShow: boolean = false;
+  leftDivShow: boolean = true;
 
   pageId;
   pageName;
   searchText;
   allDevices: any = [];
+  allUsers: any = [];
+
   deviceStatus = [
     { id: 1, value: 'Yes' },
     { id: 0, value: 'No' },
@@ -32,6 +34,9 @@ export class DeviceGroupComponent implements OnInit {
     });
     this.configurationService.getDeviceGroup().subscribe((data: any) => {
       this.allDevices = data;
+    });
+    this.configurationService.getUsers().subscribe((data: any) => {
+      this.allUsers = data;
     });
   }
 

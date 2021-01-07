@@ -11,8 +11,8 @@ import { PlanningService } from 'src/app/planning/planning.service';
 export class PlanningLayoutComponent implements OnInit {
   pageNa;
   pageI;
-  rightDivShow: boolean = true;
-  leftDivShow: boolean = false;
+  rightDivShow: boolean = false;
+  leftDivShow: boolean = true;
   constructor(
     private router: Router,
     private planningService: PlanningService
@@ -47,18 +47,16 @@ export class PlanningLayoutComponent implements OnInit {
   routeMenu(element) {
     let url =
       '/planning/list-items/' + element.pageName + '/' + element.pageId + '';
-    console.log(url);
     return url;
   }
 
-  rightDivClick(){
+  rightDivClick() {
     this.leftDivShow = true;
     this.rightDivShow = false;
   }
 
-  leftDivClick(){
+  leftDivClick() {
     this.rightDivShow = true;
     this.leftDivShow = false;
   }
-  
 }
