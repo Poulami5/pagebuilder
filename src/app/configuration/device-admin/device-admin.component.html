@@ -16,8 +16,10 @@
             </span>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">View Config Backup</a>
-              <a class="dropdown-item" href="#">Compare Config Backup</a>
-              <a class="dropdown-item" href="#">Create Device Group</a>
+              <a class="dropdown-item" data-target="#config_backup" data-toggle="modal" id="comapre_config"
+                data-backdrop="static" data-keyboard="false" (click)="onCompareTextResults()"
+                href="#config_backup">Compare Config Backup</a> <a class="dropdown-item" href="#">Create Device
+                Group</a>
               <a class="dropdown-item" href="#">Delete Device</a>
               <a class="dropdown-item" href="#">Schedule Run</a>
               <div class="dropdown-divider"></div>
@@ -200,11 +202,41 @@
             </select>
           </div>
         </div>
-        <div class="col-12 mt-4" align="end">
+        <!-- <div class="col-12 mt-4" align="end">
           <button type="reset" class="btn btn-secondary btn-sm col-2">Reset</button>
           <button type="button" class="btn btn-primary btn-sm col-2 ml-3">Save</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- Compare Config BackUp Model -->
+  <!-- Modal -->
+  <div class="modal fade" id="config_backup" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #234E54;;">
+          <button type="button" class="close" data-dismiss="modal" style="color: #fbf3f3;">&times;</button>
+        </div>
+        <div id="scrollbox" class="modal-body">
+          <div class="config_backup_leftVar">
+            {{leftSideCompareVar}}
+          </div>
+          <div class="config_backup_rightVar">
+            {{rightSideCompareVar}}
+          </div>
+          <div id="ngxTextCompare" style="margin-top: 5px !important;">
+            <td-ngx-text-diff id="ngxTextDiff" [left]="leftSideCompareVar" [right]="rightSideCompareVar"
+              [diffContent]="contentObservable$" [showToolbar]="showToolbar"> </td-ngx-text-diff>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="height: 15%;">
+          <button type="button" class="btn btn-default compareBtn" data-dismiss="modal">Ok</button>
         </div>
       </div>
+
     </div>
   </div>
 </div>

@@ -7,6 +7,8 @@ import { ConfigurationRoutingModule } from './configuration-routing.module';
 import { DeviceGroupComponent } from './device-group/device-group.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { DeviceAdminComponent } from './device-admin/device-admin.component';
+import { NgxTextDiffModule } from 'ngx-text-diff';
+
 @NgModule({
   declarations: [
     DeviceGroupComponent,
@@ -20,6 +22,7 @@ import { DeviceAdminComponent } from './device-admin/device-admin.component';
     ReactiveFormsModule,
     HttpClientModule,
     ConfigurationRoutingModule,
+    NgxTextDiffModule,
   ],
 })
 export class ConfigurationModule {}

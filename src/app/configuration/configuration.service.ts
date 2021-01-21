@@ -57,4 +57,12 @@ export class ConfigurationService {
       { headers: headers }
     );
   }
+
+  getCompareFileInfo(): Observable<any> {
+    return this.http.get(
+      environment.configBaseUrl +
+        environment.configApiEndPoint.getCompareFilesInfo,
+      { headers: headers }
+    );
+  }
 }

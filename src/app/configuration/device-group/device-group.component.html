@@ -28,7 +28,56 @@
       <i *ngIf="leftDivShow" href="#demo" (click)="leftDivClick()" data-toggle="collapse"
         class="fa fa-caret-left fa-2x pull-right pr-2 pt-2 sticky-div " aria-hidden="true"></i>
     </div>
-    <table class="table table-hover table-borderless mb-0 ">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              <img src="../../../assets/Vector.png" alt=""> Group Item1
+
+            </button><i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            Device Item 1
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+              <img src="../../../assets/Vector.png" alt=""> Group Item2
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            Device Item 2
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+              aria-expanded="false" aria-controls="collapseThree">
+              <img src="../../../assets/Vector.png" alt=""> Group Item3
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            Device Item 3
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <table class="table table-hover table-borderless mb-0 ">
       <tbody>
         <tr class="sticky-div">
           <td colspan="2">
@@ -53,7 +102,7 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
   <div class=" customSlider border-right border-top mt-1" *ngIf="rightDivShow">
     <img src="../../../assets/new-device-slider.png" alt="">
@@ -118,10 +167,10 @@
             </select>
           </div>
         </div>
-        <div class="col-12 mt-4" align="end">
+        <!-- <div class="col-12 mt-4" align="end">
           <button type="reset" class="btn btn-secondary btn-sm col-2">Reset</button>
           <button type="button" class="btn btn-primary btn-sm col-2 ml-3">Save</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

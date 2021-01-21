@@ -21,3 +21,48 @@ tbody tr {
 .p-255 {
   padding: 0.25rem 0.5rem;
 }
+
+.config_backup_leftVar {
+  width: 580px;
+  height: 80%;
+  float: left;
+  border: 3px solid rgb(124, 117, 117);
+  padding: 20px;
+  display: none;
+}
+
+.config_backup_rightVar {
+  margin-left: 600px;
+  height: 80%;
+  border: 3px solid rgb(124, 117, 117);
+  padding: 20px;
+  display: none;
+}
+
+.compareBtn {
+  background-color: #234e54;
+  color: #fbf3f3;
+  text-align: center;
+}
+
+.modal {
+  padding: 5 !important;
+  margin-top: 30px;
+}
+
+.modal-dialog {
+  max-width: 80% !important;
+  height: 90%;
+  padding: 0;
+  margin: auto;
+}
+
+.modal-content {
+  border-radius: 2 !important;
+  height: 100%;
+}
+
+#scrollbox {
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}

@@ -32,7 +32,7 @@ export class ListItemsComponent implements OnInit {
 
   routeToAddDetails() {
     let url = '/planning/add-items/' + this.pageName + '/' + this.pageId + '';
-    // console.log(url);
+    console.log(url);
     return url;
     // this.router.navigate([
     //   "/planning/add-items",

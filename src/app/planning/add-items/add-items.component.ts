@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-items',
@@ -65,6 +66,10 @@ export class AddItemsComponent implements OnInit {
         this.submitAction = element.element_action;
       }
     });
+    this.myFormGroup.value.uid = environment.uid;
+    this.myFormGroup.value.orderid = environment.orderid;
+
+    console.log('myFormGroup' + JSON.stringify(this.myFormGroup.value));
 
     this.planningService
       .createPageValues(this.submitAction, this.myFormGroup.value)
