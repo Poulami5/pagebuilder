@@ -67,7 +67,7 @@ export class AddItemsComponent implements OnInit {
       }
     });
     this.myFormGroup.value.uid = environment.uid;
-    this.myFormGroup.value.orderid = environment.orderid;
+    // this.myFormGroup.value.orderid = environment.orderid;
 
     console.log('myFormGroup' + JSON.stringify(this.myFormGroup.value));
 
