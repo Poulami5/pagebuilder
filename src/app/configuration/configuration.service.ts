@@ -39,11 +39,12 @@ export class ConfigurationService {
  getCompareFileInfo(): Observable<any> {
   return this.http.get(environment.configBaseUrl + environment.configApiEndPoint.getCompareFilesInfo, { headers: headers });
  }
- Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId): Observable<any> {
-  let body = new HttpParams();
-  body = body.set("updatefrequency", updatefrequency);
-  body = body.set("epochupdateschedule", epochupdateschedule);
 
-  return this.http.put(environment.configBaseUrl + environment.configApiEndPoint.Updatedeviceschedule + "/" + deviceId, body, { headers: headers });
+ Updatedeviceschedule(dataObj): Observable<any> {
+  //   let body = new HttpParams();
+  //   body = body.set("updatefrequency", updatefrequency);
+  //   body = body.set("updateschedule", epochupdateschedule);
+  //   body = body.set("deviceId", deviceId);
+  return this.http.put(environment.configBaseUrl + environment.configApiEndPoint.Updatedeviceschedule + "/" + dataObj.deviceId, dataObj, { headers: headers });
  }
 }

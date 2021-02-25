@@ -138,7 +138,7 @@ export class DeviceAdminComponent implements OnInit {
    }
   }, 0);
  }
- ChangeScheduleSave() {
+ async ChangeScheduleSave() {
   let msg = "";
   let timezoneDiff = 19800; // Number of seconds
   //let diffOperator = "-"; // if server timezone is less than user timezone keep minus sign else keep plus sign -->
@@ -161,40 +161,33 @@ export class DeviceAdminComponent implements OnInit {
   let epochupdateschedule = new Date(updateschedul2).getTime() / 1000; //strtotime(updateschedule);
   console.log("epochupdateschedule::" + epochupdateschedule);
   let deviceId = "4";
-  let STATUS = "";
+  let STATUS;
   if (updatefrequency == "" && updateschedule != "") {
-   STATUS = this.Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId);
-   // STATUS = mysqli_query($con, "update deviceschedule set nextSchedule = '$epochupdateschedule' where deviceId = '$deviceId'");
+   STATUS = await this.Updatedeviceschedule(frq, epochupdateschedule, deviceId);
    if (STATUS) {
-    // writeLog('Updated device schedule( '.$epochupdateschedule.' ) for device('.$deviceName.').');
     msg = "Schedule Updated Successfully.";
    } else {
-    // writeLog('Updating device schedule( '.$epochupdateschedule.' ) for device('.$deviceName.') failed.');
     msg = "Schedule Update Failed.";
    }
   } else if (updatefrequency != "" && updateschedule == "") {
-   STATUS = this.Updatedeviceschedule(updatefrequency, updateschedule, deviceId);
-   // STATUS = mysqli_query($con, "update deviceschedule set scheduleFrequency = '$updatefrequency' where deviceId = '$deviceId'");
+   STATUS = await this.Updatedeviceschedule(frq, updateschedule, deviceId);
    if (STATUS) {
-    //writeLog('Updated device frequency to '.$frequency.' for device('.$deviceName.').');
     msg = "Schedule Updated Successfully.";
    } else {
-    //writeLog('Updating device frequency to '.$frequency.' for device('.$deviceName.') failed.');
     msg = "Schedule Update Failed.";
    }
   } else if (updatefrequency != "" && updateschedule != "") {
-   STATUS = this.Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId);
-   // STATUS = mysqli_query($con, "update deviceschedule set scheduleFrequency = '$updatefrequency',nextSchedule = '$epochupdateschedule' where deviceId = '$deviceId'");
+   STATUS = await this.Updatedeviceschedule(frq, epochupdateschedule, deviceId);
+   console.log(STATUS);
    if (STATUS) {
-    //writeLog('Updated device frequency to '.$frequency.' and device schedule('.$epochupdateschedule.') for device('.$deviceName.').');
     msg = "Schedule Updated Successfully.";
    } else {
-    //writeLog('Updating device frequency to '.$frequency.' and device schedule('.$epochupdateschedule.') for device('.$deviceName.') failed.');
     msg = "Schedule Update Failed.";
    }
   } else {
    msg = "No updates found";
   }
+  console.log(msg);
  }
 
  GetFrequencyByID(freqID) {
@@ -208,12 +201,17 @@ export class DeviceAdminComponent implements OnInit {
   return frequency;
  }
 
- Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId) {
-  let val = "";
-  this.configurationService.Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId).subscribe((data: any) => {
-   //this.deviceGroup = data;
-   val = data;
-  });
+ async Updatedeviceschedule(updatefrequency, epochupdateschedule, deviceId) {
+  let dataObj = {
+   updatefrequency: updatefrequency,
+   updateschedule: epochupdateschedule,
+   deviceId: deviceId,
+  };
+  let val = await this.UpdatedeviceschedulefromAPI(dataObj);
   return val;
+ }
+
+ public UpdatedeviceschedulefromAPI(dataObj): Promise<any> {
+  return this.configurationService.Updatedeviceschedule(dataObj).toPromise();
  }
 }
